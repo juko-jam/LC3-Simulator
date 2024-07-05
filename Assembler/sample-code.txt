@@ -1,0 +1,21 @@
+; this symbol is used for comments ;
+; A program to calculate addition of numbers from 1 to N
+	ORG HEX 3000
+; initialize variables
+	LD R0, INIT ; 12288
+	LD R2, N ; 12289
+	AND R1, R1, #0 ; 12290
+; Loop to add numbers from 1 to 100
+LOOP, ADD	R1, R1, R0 ; 12291
+	ADD	R0, R0, #1 ; 12292
+	ADD 	R2, R2, #1 ; 12293
+	BRn	LOOP ; 12294
+; store the result (sum of numbers 1 to 100) in memory
+	ST R1, RESULT ; 12295 store the sum in memory location 'RESULT'
+; Halt the program
+	HALT ; 12296
+; Initialize variables
+INIT, DEC 1; 12297
+RESULT, DEC 0 ; 12298
+N, DEC -100 ; 12299
+	END
